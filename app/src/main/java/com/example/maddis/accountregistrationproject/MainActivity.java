@@ -3,6 +3,7 @@ package com.example.maddis.accountregistrationproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,18 @@ public class MainActivity extends AppCompatActivity {
         accountForm = findViewById(R.id.accoundForm);
         register = findViewById(R.id.registerButton);
         register.setText("Register!");
+
+        //kanske är något sånt här som de vill att man ska kunna göra
+        TextView customText = new TextView(this);
+        customText.setText("My own custom field");
+        customText.setTextSize(20);
+        customText.setGravity(Gravity.CENTER);
+        accountForm.addCustomField(customText);
+
+        TestClass t = new TestClass(this, "bla", true, accountForm.textType);
+        accountForm.addRegistrationField(t);
+        /////////////////////////////////////////////////////////////
+
 
         RegistrationField firstName = new RegistrationField(this, "First name", true, accountForm.textType);
         RegistrationField lastName = new RegistrationField(this, "Last name", true, accountForm.textType);

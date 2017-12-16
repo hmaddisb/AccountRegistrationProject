@@ -20,9 +20,11 @@ public class RegistrationField extends LinearLayout {
 
     Context context;
     String fieldName;
+    String inputType;
+
     boolean isRequired;
     boolean validField = false;
-    String inputType;
+
     LinearLayout layout;
     TextView textView;
     EditText editText;
@@ -38,20 +40,23 @@ public class RegistrationField extends LinearLayout {
         this.fieldName = fieldName;
         this.isRequired = isRequired;
         this.inputType = inputType;
+        layout = (LinearLayout) inflate(context, R.layout.new_registration_field, null);
         initializeField();
     }
 
-    public void initializeField() {
-        layout = (LinearLayout) inflate(context, R.layout.new_registration_field, null);
-
+    public void initializeField()
+    {
         textView = layout.findViewById(R.id.fieldName);
         editText = layout.findViewById(R.id.fieldText);
 
-        if (!isRequired) {
+        if (!isRequired)
+        {
             editText.setBackgroundColor(defaultColor);
             textView.setText(fieldName + ":");
             validField = true;
-        } else {
+        }
+        else
+        {
             textView.setText(fieldName + ":*");
             editText.setBackgroundColor(defaultColor);
         }
@@ -99,7 +104,6 @@ public class RegistrationField extends LinearLayout {
 
             }
         });
-
         addView(layout);
     }
 

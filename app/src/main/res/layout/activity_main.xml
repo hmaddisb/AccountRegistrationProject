@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    tools:context="com.example.maddis.accountregistrationproject.MainActivity"
+    android:orientation="vertical"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:textColor="#8b27a4"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp"
+        android:textStyle="bold"
+        />
+
+    <com.example.maddis.accountregistrationproject.AccountForm
+        android:id="@+id/accoundForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </com.example.maddis.accountregistrationproject.AccountForm>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#8b27a4"/>
+
+</LinearLayout>

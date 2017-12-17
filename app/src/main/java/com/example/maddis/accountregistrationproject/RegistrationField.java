@@ -17,7 +17,7 @@ import android.widget.TextView;
  */
 
 /**
- * class for a registration field that can be initialied
+ * class for a registration field that is initialized in main
  */
 public class RegistrationField extends LinearLayout {
 
@@ -25,35 +25,28 @@ public class RegistrationField extends LinearLayout {
     String fieldName;
     String inputType;
 
-    /*
-    isRequired is used to set if a user needs to fill out this field or not
-     */
+
     boolean isRequired;
 
-    /*
-    used to check if all fields that are required are filled in correctly
-     */
     boolean validField = false;
 
     LinearLayout layout;
 
-    /*
-    text view to the left of a registration field
-     */
     TextView textView;
 
-    /*
-    the edit text field to the left where the user can write its input
-     */
     EditText editText;
 
-    /*
-    the different colors to
-     */
     int validColor = Color.GREEN;
     int invalidColor = Color.RED;
     int defaultColor = Color.GRAY;
 
+    /**
+     * The constructor that is taking in the information needed to create a new object
+     * @param context
+     * @param fieldName is the text that is showed to the user
+     * @param isRequired is true if some criteria needs to be fulfilled and false if no criteria exists
+     * @param inputType is the type of input, ex. "password"
+     */
     public RegistrationField(Context context, String fieldName, boolean isRequired, String inputType)
     {
         super(context);
@@ -65,6 +58,9 @@ public class RegistrationField extends LinearLayout {
         initializeField();
     }
 
+    /**
+     * This method initialize the field that is being made with the right text-type, background color etc.
+     */
     public void initializeField()
     {
         textView = layout.findViewById(R.id.fieldName);
@@ -100,6 +96,9 @@ public class RegistrationField extends LinearLayout {
         watchText();
     }
 
+    /**
+     * The textwatcher that is checking the updates in the fields and setting the background color if the input is valid/ not valid
+     */
     public void watchText()
     {
        editText.addTextChangedListener(new TextWatcher()
@@ -127,6 +126,10 @@ public class RegistrationField extends LinearLayout {
         addView(layout);
     }
 
+    /**
+     * This method checks if the input is valid depending of the type of the input
+     * @param checkInput is the input
+     */
     public void checkIfValidInput(String checkInput)
     {
 
@@ -161,6 +164,8 @@ public class RegistrationField extends LinearLayout {
             else validField = false;
         }
     }
+
+    //Getters and setters for variables
 
     public void resetField()
     {

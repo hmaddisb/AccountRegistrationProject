@@ -16,19 +16,40 @@ import android.widget.TextView;
  * Created by Maddis on 2017-12-16.
  */
 
+/**
+ * class for a registration field that can be initialied
+ */
 public class RegistrationField extends LinearLayout {
 
     Context context;
     String fieldName;
     String inputType;
 
+    /*
+    isRequired is used to set if a user needs to fill out this field or not
+     */
     boolean isRequired;
+
+    /*
+    used to check if all fields that are required are filled in correctly
+     */
     boolean validField = false;
 
     LinearLayout layout;
+
+    /*
+    text view to the left of a registration field
+     */
     TextView textView;
+
+    /*
+    the edit text field to the left where the user can write its input
+     */
     EditText editText;
 
+    /*
+    the different colors to
+     */
     int validColor = Color.GREEN;
     int invalidColor = Color.RED;
     int defaultColor = Color.GRAY;

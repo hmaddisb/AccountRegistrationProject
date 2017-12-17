@@ -16,20 +16,37 @@ import java.util.ArrayList;
  * Created by Maddis on 2017-12-16.
  */
 
+/**
+ * The class for the complete account registration form
+ */
 public class AccountForm extends LinearLayout {
 
     Context context;
 
+    /*
+    used to check if all the required fields are correctly filled after
+     clicking the register button
+     */
     boolean validRegistration;
 
+    /*
+    an arraylist with all the fields
+     */
     private ArrayList<RegistrationField> registrationFields;
 
+    /*
+    short commands to tell which kind of input the user wants to have when initializing
+    a new registration field
+     */
     String textType = "text";
     String passwordType = "password";
     String emailType = "email";
     String numberType = "number";
     String dateType = "date";
 
+    /*
+    toast messages that shows when the register button is clicked
+     */
     String validRegistrationMessage = "Registration complete!";
     String invalidRegistrationMessage = "Something went wrong with your registration.\n" +
                                         "Please check fields marked with a *";
@@ -44,6 +61,10 @@ public class AccountForm extends LinearLayout {
         registrationFields = new ArrayList<>();
     }
 
+    /**
+     * iterates over all the fields in the list of registration fields
+     * and checks if the field is correctly filled/not required
+     */
     public void checkRegistration()
     {
         for(RegistrationField field: registrationFields)
@@ -65,6 +86,10 @@ public class AccountForm extends LinearLayout {
         }
     }
 
+    /**
+     * if a registration is okay, it iterates over all the fields and empties
+     * all the input and sets the background color to the default color
+     */
     public void setCompleteRegistration()
     {
         for(RegistrationField field: registrationFields)
@@ -75,12 +100,20 @@ public class AccountForm extends LinearLayout {
         }
     }
 
+    /**
+     * adds a new field to the account registration form
+     * @param field the registration field to be added to the registration form
+     */
     public void addRegistrationField(RegistrationField field)
     {
         addView(field);
         registrationFields.add(field);
     }
 
+    /**
+     * shows a toast message whether a registration was successful or not
+     * @param msg the message to be shown
+     */
     public void showRegistrationMessage(String msg)
     {
         Toast t = Toast.makeText(context, msg, Toast.LENGTH_LONG);
@@ -92,6 +125,11 @@ public class AccountForm extends LinearLayout {
 
     }
 
+    /**
+     * if a user wants to add a view/field to the form that is not
+     * of the same kind as the registration field
+     * @param customField the view to be added to the form
+     */
     public void addCustomField(View customField)
     {
         addView(customField);

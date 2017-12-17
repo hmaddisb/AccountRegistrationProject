@@ -2,7 +2,6 @@ package com.example.maddis.accountregistrationproject;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.widget.EditText;
 
 /**
  * Created by Maddis on 2017-12-16.
@@ -15,5 +14,9 @@ public class TestClass extends RegistrationField {
 
         setValidColor(Color.CYAN);
         setInvalidColor(Color.BLUE);
+
+
     }
+
+
 }

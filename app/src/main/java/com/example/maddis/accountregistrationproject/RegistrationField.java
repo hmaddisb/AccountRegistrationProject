@@ -57,7 +57,7 @@ public class RegistrationField extends LinearLayout {
         }
         else
         {
-            textView.setText(fieldName + ":*");
+            textView.setText("*" + fieldName + ":");
             editText.setBackgroundColor(defaultColor);
         }
 

@@ -1,5 +1,6 @@
 package com.example.maddis.accountregistrationproject;
 
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -7,6 +8,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,22 +37,28 @@ public class MainActivity extends AppCompatActivity {
         customText.setGravity(Gravity.CENTER);
         accountForm.addCustomField(customText);
 
-        TestClass t = new TestClass(this, "bla", true, accountForm.textType);
+        ImageView view = new ImageView(this);
+        view.setImageResource(R.drawable.mh);
+
+        accountForm.addCustomField(view);
+
+
+        TestClass t = new TestClass(this, "Pet", true, accountForm.textType);
         accountForm.addRegistrationField(t);
         /////////////////////////////////////////////////////////////
 
 
-        RegistrationField firstName = new RegistrationField(this, "First name", true, accountForm.textType);
-        RegistrationField lastName = new RegistrationField(this, "Last name", true, accountForm.textType);
+        RegistrationField firstName = new RegistrationField(this, "Full name", true, accountForm.textType);
+        //RegistrationField lastName = new RegistrationField(this, "Last name", true, accountForm.textType);
         RegistrationField password = new RegistrationField(this, "Password", true, accountForm.passwordType);
         RegistrationField email = new RegistrationField(this, "Email", true, accountForm.emailType);
-        RegistrationField telephone = new RegistrationField(this, "Telephone", false, accountForm.numberType);
+        //RegistrationField telephone = new RegistrationField(this, "Telephone", false, accountForm.numberType);
 
         accountForm.addRegistrationField(firstName);
-        accountForm.addRegistrationField(lastName);
+       // accountForm.addRegistrationField(lastName);
         accountForm.addRegistrationField(password);
         accountForm.addRegistrationField(email);
-        accountForm.addRegistrationField(telephone);
+       // accountForm.addRegistrationField(telephone);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

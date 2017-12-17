@@ -101,7 +101,6 @@ public class RegistrationField extends LinearLayout {
 
                 else
                     editText.setBackgroundColor(invalidColor);
-
             }
         });
         addView(layout);

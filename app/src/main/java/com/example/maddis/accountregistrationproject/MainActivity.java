@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         This is two custom fields that we have used to show that you can change
         how the registration form looks
         */
-        TextView customText = new TextView(this);
+        /*TextView customText = new TextView(this);
         customText.setText("My own custom field");
         customText.setTextSize(20);
         customText.setGravity(Gravity.CENTER);
@@ -47,24 +47,45 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageView = new ImageView(this);
         imageView.setImageResource(R.drawable.mh);
-        accountForm.addCustomField(imageView);
+        accountForm.addCustomField(imageView);*/
 
         /*
         A test class to show that you can override methods and still add it as a registration field
         component to account registration
          */
-        TestClass t = new TestClass(this, "Pet", true, accountForm.textType);
+        TestClass t = new TestClass(this, "Pet name", true, accountForm.textType);
         accountForm.addRegistrationField(t);
 
         //The fields that have been initialized to the account form
-        RegistrationField firstName = new RegistrationField(this, "Full name", true, accountForm.textType);
-        //RegistrationField lastName = new RegistrationField(this, "Last name", true, accountForm.textType);
+        final RegistrationField firstName = new RegistrationField(this, "Full name", true, accountForm.textType);
+
+        /*
+        shows that you can override methods directly and not only through creating a new class
+        if no addCheckIfValidInput is overrided, it uses the checkIfValidInput method that
+        we have created
+         */
+        firstName.addCheckIfValidInput(new CheckIfValidInput(){
+
+            @Override
+            public void run(String input) {
+                if(input.length() > 4 && input.contains(" "))
+                {
+                    firstName.validField = true;
+                }
+                else
+                {
+                    firstName.validField = false;
+                }
+            }
+        });
+
+        RegistrationField lastName = new RegistrationField(this, "Last name", true, accountForm.textType);
         RegistrationField password = new RegistrationField(this, "Password", true, accountForm.passwordType);
-        RegistrationField email = new RegistrationField(this, "Email", true, accountForm.emailType);
+        RegistrationField email = new RegistrationField(this, "Email", false, accountForm.emailType);
         //RegistrationField telephone = new RegistrationField(this, "Telephone", false, accountForm.numberType);
 
         accountForm.addRegistrationField(firstName);
-       // accountForm.addRegistrationField(lastName);
+        accountForm.addRegistrationField(lastName);
         accountForm.addRegistrationField(password);
         accountForm.addRegistrationField(email);
        // accountForm.addRegistrationField(telephone);
